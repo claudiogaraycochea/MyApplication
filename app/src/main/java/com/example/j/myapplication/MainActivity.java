@@ -10,7 +10,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 import android.widget.Button;
-
+import android.app.AlertDialog;
+import android.content.Context;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -35,7 +36,36 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+
+        final MyJavaScriptInterface myJavaScriptInterface
+                = new MyJavaScriptInterface(this);
+        mWebView.addJavascriptInterface(myJavaScriptInterface, "AndroidFunction");
+
+
     }
+
+    public class MyJavaScriptInterface {
+        Context mContext;
+
+        MyJavaScriptInterface(Context c) {
+            mContext = c;
+        }
+
+        public void showToast(String toast){
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+        }
+
+        public void openAndroidDialog(){
+            AlertDialog.Builder myDialog
+                    = new AlertDialog.Builder(MainActivity.this);
+            myDialog.setTitle("DANGER!");
+            myDialog.setMessage("You can do what you want!");
+            myDialog.setPositiveButton("ON", null);
+            myDialog.show();
+        }
+
+    }
+
 
     public void simpleFunction(){
         Toast.makeText(getApplicationContext(), "This is a plain toast.", Toast.LENGTH_SHORT).show();
