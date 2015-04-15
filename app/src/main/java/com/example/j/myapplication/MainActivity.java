@@ -34,6 +34,9 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 //create the toast object, set display duration,
                 Toast.makeText(getApplicationContext(), "This is a plain toast.", Toast.LENGTH_SHORT).show();
+
+                //mWebView.loadUrl("javascript:callFromActivity(\\\"\"+msgToSend+\"\\\")");
+                mWebView.loadUrl("javascript:showTest()");
             }
         });
 
