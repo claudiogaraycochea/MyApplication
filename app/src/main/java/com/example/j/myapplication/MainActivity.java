@@ -19,7 +19,6 @@ public class MainActivity extends ActionBarActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-
         mWebView.loadUrl("file:///android_asset/index.html");
     }
 
