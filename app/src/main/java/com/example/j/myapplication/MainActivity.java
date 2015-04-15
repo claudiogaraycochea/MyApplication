@@ -12,11 +12,12 @@ public class MainActivity extends ActionBarActivity {
     private WebView mWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         mWebView.loadUrl("http://beta.html5test.com/");
     }
 
