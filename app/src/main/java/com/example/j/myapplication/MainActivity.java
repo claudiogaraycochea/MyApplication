@@ -4,8 +4,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
+import android.widget.Button;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,6 +25,18 @@ public class MainActivity extends ActionBarActivity {
         webSettings.setJavaScriptEnabled(true);
 
         mWebView.loadUrl("file:///android_asset/index.html");
+
+
+        //myBrowser.loadUrl("javascript:callFromActivity(\""+msgToSend+"\")");
+
+        Button toastButton = (Button) this.findViewById(R.id.toastButton);
+        toastButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                //create the toast object, set display duration,
+                Toast.makeText(getApplicationContext(), "This is a plain toast.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
@@ -43,4 +60,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
