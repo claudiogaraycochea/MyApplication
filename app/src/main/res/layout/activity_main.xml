@@ -22,11 +22,21 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Execute Javascript"
         android:id="@+id/toastButton"
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/activity_main_webview"
         android:layout_alignEnd="@+id/activity_main_webview" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open button"
+        android:id="@+id/button"
+        android:onClick="openButton"
+        android:layout_alignTop="@+id/toastButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

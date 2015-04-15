@@ -26,21 +26,23 @@ public class MainActivity extends ActionBarActivity {
 
         mWebView.loadUrl("file:///android_asset/index.html");
 
-
-        //myBrowser.loadUrl("javascript:callFromActivity(\""+msgToSend+"\")");
-
         Button toastButton = (Button) this.findViewById(R.id.toastButton);
         toastButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                //create the toast object, set display duration,
-                Toast.makeText(getApplicationContext(), "This is a plain toast.", Toast.LENGTH_SHORT).show();
-
+                simpleFunction();
                 String data = "json{'name':'Claudio','age':'33'}";
-                //mWebView.loadUrl("javascript:callFromActivity(\\\"\"+msgToSend+\"\\\")");
                 mWebView.loadUrl("javascript:showTest(\""+data+"\")");
             }
         });
 
+    }
+
+    public void simpleFunction(){
+        Toast.makeText(getApplicationContext(), "This is a plain toast.", Toast.LENGTH_SHORT).show();
+    }
+
+    public void openButton(View view){
+        Toast.makeText(getApplicationContext(), "Executing function open button.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
